@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 1932px;
+  background: #3B415C;    
+  overflow-x: hidden;    
+  overflow-y: auto;
+  font-family: 'Exo 2', sans-serif;
+  color: aliceblue;      
+}
+
+#page {
+  
+  width: 100%;          
+  max-width: 1240px;    
+  margin: 0 auto;      
+  min-height: 1932px;   
+  position: relative;
+}
+
+#background {
+  position: relative;
+  padding: 0px;
+  width: 100%;
+  height: 700px;
+  margin: 0%;
+  overflow: hidden;
+  background:linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.58) 0%,rgba(102,102,102, 0) 26%),
+      url('img/newgbvsr.png') center/cover no-repeat;
+}
+
+#background img {
+  width: 100%;         
+  height: auto;       
+  display: block; 
+  position: absolute;
+  top: 0px; left: 0px;
+  padding: 0px;
+}
+
+#trailer img{
+  position: absolute;
+  top: 80px; left:182px;
+  width: auto;
+  height: 494px;
+  padding: 0px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.7);
+  margin: auto;
+}
+
+#layout {
+    width: 1119px;
+    max-height: 1010px;
+    margin: auto;
+    margin-top: 125px;
+}
+
+#layout img{
+    width: 1119px;
+    max-height: 1010px;
+}
+
+
+#layout .title {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+
+#layout .icon-link {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  margin-top: 815px;
+  margin-left: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#layout .icon-link img {
+  display: block;
+  width: 206px;
+  height: auto;
+}
+
+#gameplay img {
+    position: absolute;
+    width: 695px;
+    height: 394px;
+    top: 870.5px;
+    left: 63.9px;
+    margin: 0;
+}

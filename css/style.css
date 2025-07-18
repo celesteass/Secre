@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import url(https://www.fontspace.com/ancient-modern-tales-font-f28700);
+
+@font-face {
+  font-family: 'Ancient Modern Tales';
+  src: url('fonts/AncientModernTales-a7Po') format('truetype');
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+
+
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: contain;
+}
+
+#arcade {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  object-fit: contain;
+}
+
+#screen {
+  position: absolute;
+  width: 171.4px;
+  height: 116px;
+  left: 538.3px; 
+  top: 192px;
+  z-index: 2;
+  object-fit: cover;
+}
+
+#titleText {
+  position: absolute;
+  top: 213px; 
+  left: 575.1px;
+  font-family: 'Ancient Modern Tales', serif;
+  font-size: 48px;
+  color: #ffffb3;
+  z-index: 3;
+  text-shadow: 2px 2px #000;
+}
+
+#startBtn {
+  position: relative;
+  top: 255px;
+  left: 534px;
+  z-index: 3;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  padding: 10px 20px;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+  animation: blink 0.9s steps(1) infinite;
+  
+}
+
+#startBtn::before,
+#startBtn::after {
+  content: "";
+  display: inline-block;
+  transition: content 0.1s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#startBtn:hover::before {
+  content: "> ";
+  left: 3px;  
+}
+
+#startBtn:hover::after {
+  content: " <";
+  right: 3px; 
+}
+
+
+#startBtn:hover {
+  color: yellow;
+  animation-play-state: paused !important;
+  opacity: 1 !important; 
+}
+
+
+#fullScreenView {
+  position: absolute;
+  margin: 0%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 6;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#menu {
+  position: absolute;
+  top: 310px; 
+  left: 90px;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#menuText {
+  position: absolute;
+  top: 80px;    
+  left: 80px;  
+  font-family: 'Ancient Modern Tales', serif;
+  font-size: 150px;
+  color: #ffffb3;
+  z-index: 7;
+  opacity: 0;                
+  transition: color 0.2s;
+}
+
+#menu button {
+  position: relative;  
+  transition: padding-left 0.2s ease, color 0.2s ease;
+  padding-left: 20px;
+  background: transparent;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 38px;    
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+
+
+#menu button::before,
+#menu button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+#menu button:hover::before {
+  content: "> ";
+  left: 0px;   
+}
+
+
+#menu button:hover {
+  padding-left: 70px;
+  color: white;
+}
+
+#zoomedScreen {
+  position: absolute;
+  width: 171.4px;
+  height: 116px;
+  left: 534.3px;
+  top: 192px;
+  object-fit: cover;
+  z-index: 6;
+  transition: all 1s ease-out;
+}
+
+#zoomedScreen.zoomed {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+#overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);  /* 50% */
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+
+#exitConfirmOverlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('img/arcade-screen.jpeg') center/cover no-repeat;  
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  padding-bottom: 40px;
+}
+#exitConfirmOverlay::before {
+  content: "";
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+#exitDialog {
+  text-align: center;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  z-index: 2;
+}
+
+#exitText {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+#exitButtons {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+#exitButtons button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 24px;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+  transition: color 0.2s;
+}
+
+#exitButtons button:hover {
+  color: #CCA8E0
+;
+}
+
+#selectionbg img {
+  width: 100%;
+  height: 700px;
+  left: 0;
+  top: 0;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  margin: auto;
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('img/arcade-screen.jpeg') center/cover no-repeat;
+}
+
+#carousel {
+
+  width: 1240px;
+  height: 100%;
+  overflow: visible;
+}
+
+#carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('img/arcade-screen.jpeg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  width: 50px; height: 50px;
+  cursor: pointer;
+}
+.navBtn.prev { left: 10px; }
+.navBtn.next { right: 10px; }
+
+
+
+#selectText {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 48px;
+  margin-top: 60px;
+  color: #fff;
+  text-align: center;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }  
+  50%      { opacity: 0; }  
+}
+
+#carouselContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;              
+  margin: 0 auto;
+  position: relative;
+}
+
+#carouselTrack {
+  display: flex;
+  gap: 86px;                 
+  transition: transform 0.6s ease-in-out;
+  margin-top: 70px;
+}
+
+.carousel-image {
+  width: 685px;
+  height: 386px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.carousel-image :hover {
+  width: 685px;
+  height: 386px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  cursor: pointer;
+  background:
+  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+}
+
+#website img {
+  width: 1012px;
+  height: 523px;
+  margin-top: 91px;
+  margin-right: 112px;
+  margin-bottom: 86px;
+  margin-left: 116px;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 95px;
+  left: 1047px;
+  width: 73px;
+  height: 57px;
+  border: none;
+  background: url('img/close2.png') no-repeat center/contain;
+  cursor: pointer;
+  z-index: 999;  
+}
+
+
+#closeBtn:hover {
+  background-image: url('img/hover4.png');
+  top: 95px;
+  left: 1047px;
+  width: 73px;
+  height: 57px;
+}
+
