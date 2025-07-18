@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secré</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+   <script src="js/carousel.js"></script>
+</head>
+<body>
+  <div id="container">
+    <img src="img/background.jpeg"      alt="Full image"         id="background">
+    <img src="img/arcade-machine.png"   alt="Arcade machine"     id="arcade">
+    <img src="img/arcade-screen.jpeg"   alt="Arcade screen" id="screen">
+
+    <div id="screenContent">
+      <div id="titleText">Secré</div>
+      <button id="startBtn" onclick="startGame()">PRESS START</button>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="fullScreenView">
+      <img src="img/arcade-screen.jpeg" id="zoomedScreen" alt="Zoomed screen">
+
+      <div id="menuText">Secré</div>
+      <div id="menu">
+        <button onclick="navigate('play')">PLAY</button>
+        <button onclick="navigate('choose')">OPTIONS</button>
+        <button id="exitBtn" onclick="showExitConfirm()">EXIT GAME</button>
+      </div>
+
+      <div id="exitConfirmOverlay">
+        <div id="exitDialog">
+          <div id="exitText">EXIT GAME?</div>
+          <div id="exitButtons">
+            <button id="yesExit">YES</button>
+            <button id="noExit">NO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

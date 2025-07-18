@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="css/choose.css" />
+  <script src="js/choose.js" defer></script>
+</head>
+<body>
+  <div id="container">
+    <div
+      id="fullScreenView"
+      style="display:flex; justify-content:center; align-items:center; flex-direction:column;"
+    >
+      <div id="menu" style="opacity:1;">
+        <button id="aboutBtn">ABOUT ME</button>
+        <button id="hobbyBtn">MY HOBBY</button>
+        <button id="gamesBtn">ABOUT VIDEO GAMES</button>
+        <button id="exitBtn">RETURN TO MAIN MENU</button>
+      </div>
+    </div>
+
+    <div id="aboutConfirmOverlay" class="infoOverlay">
+      <button class="closeBtn" aria-label="Close"></button>
+      <img src="img/hana.png" alt="About Me" class="overlayImage"/>
+    </div>
+
+    <div id="hobbyConfirmOverlay" class="infoOverlay">
+      <button class="closeBtn" aria-label="Close"></button>
+      <img src="img/gameplay.png" alt="My Hobby" class="overlayImage"/>
+    </div>
+
+    <div id="gamesConfirmOverlay" class="infoOverlay">
+      <button class="closeBtn" aria-label="Close"></button>
+      <img src="img/gamepads.png" alt="About Video Games" class="overlayImage"/>
+    </div>
+
+    <div id="exitConfirmOverlay" class="confirmOverlay">
+      <div class="dialog">
+        <div class="dialogText">RETURN TO MAIN MENU?</div>
+        <div class="dialogButtons">
+          <button id="yesExit">YES</button>
+          <button id="noExit">NO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
